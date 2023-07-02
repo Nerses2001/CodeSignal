@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using CodeSignal.Intro;
 using CodeSignal.Intro.TheJourneyBegins;
 using CodeSignal.TheCore;
+
+//https://app.codesignal.com/profile/nerses_h_kdd
 
 namespace CodeSignal
 {
