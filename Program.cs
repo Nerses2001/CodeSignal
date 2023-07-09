@@ -9,8 +9,63 @@ namespace CodeSignal
 {
     internal class Program
     {
+        static void GetMin(int [] arr, int k) 
+        {
+            if (arr.Length < 2)
+            {
+                Console.WriteLine(-1);
+            }
+          
+            
+            int[] sumes = new int[arr.Length];
+
+            for(int i = 0; i < arr.Length; ++i) 
+            {
+                sumes[i] = Math.Abs(k - arr[i]);
+            }
+            int min1 = sumes[0];
+            int min2 = sumes[1];
+            int res1 = min1;
+            int res2 = min2;    
+
+            for (int i = 0; i < sumes.Length; i++)
+            {
+                if (Math.Abs(k - sumes[i]) < min1)
+                {
+                    min2 = min1;
+                    res1 = arr[i];
+                    min1 = sumes[i];
+                }
+                else if (Math.Abs(k - sumes[i])< min2 && sumes[i] != min1)
+                {
+                    res2 = arr[i];
+                    min2 = sumes[i];
+                }
+            }
+
+            Console.WriteLine(res1);
+            Console.WriteLine(res2);
+        }
+
+
+           
+            
+        
+        
         static void Main(string[] args)
         {
+            int[] a =   {2, 5, 6,  8, 9, 12, 68, 99};
+            int k = 100;
+            // k = 100| 98 95 94, 92, 91 88  32  1 
+            // k = 50 | 48 45 44  42  41 38  18  49 
+
+
+            GetMin(a, k);
+
+            
+
+
+
 
             Console.WriteLine("************************* - INTRO - *************************");
 
@@ -543,6 +598,13 @@ namespace CodeSignal
 
             int sequenceLength = labyrinthOfNestedLoops.SquareDigitsSequence(16);
             Console.WriteLine("SquareDigitsSequence: " + sequenceLength);
+
+            int LabyrinthOfNestedLoopsCurrent = 1;
+            int numberOfDigits = 10;
+
+            int startingPage = labyrinthOfNestedLoops.PagesNumberingWithLnk(LabyrinthOfNestedLoopsCurrent, numberOfDigits);
+            Console.WriteLine("Starting page number: " + startingPage);
+        
 
             Console.ReadKey();
         }
